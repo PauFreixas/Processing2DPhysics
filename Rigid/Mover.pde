@@ -4,6 +4,7 @@ class Mover {
   PVector velocity;
   PVector acceleration;
   float mass;
+  float gravity = 0.5;
  
   Mover() {
     mass = 1;
@@ -21,6 +22,8 @@ class Mover {
     velocity.add(acceleration);
     location.add(velocity);
     acceleration.mult(0);
+    applyForce(new PVector(0,mass * gravity));
+    checkEdges();
   }
  
   void display() {
