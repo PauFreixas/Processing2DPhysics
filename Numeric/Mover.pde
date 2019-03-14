@@ -5,12 +5,15 @@ class Mover {
   PVector acceleration;
   float mass;
   float gravity = 0.5;
+  
+  Spring s;
  
   Mover() {
     mass = 1;
     location = new PVector(30,30);
     velocity = new PVector(2,0);
     acceleration = new PVector(0,0);
+    s = new Spring(1, 10);
   }
  
   void applyForce(PVector force) {
@@ -24,12 +27,12 @@ class Mover {
     acceleration.mult(0);
     applyForce(new PVector(0,mass * gravity));
     checkEdges();
+    
+    s.update(location);
   }
  
   void display() {
-    stroke(0);
-    fill(175);
-    ellipse(location.x,location.y,mass*16,mass*16);
+    s.display();
   }
  
   void checkEdges() {
@@ -44,6 +47,7 @@ class Mover {
     if (location.y > height) {
       velocity.y *= -1;
       location.y = height;
+      s.begin();
     }
   }
 }
