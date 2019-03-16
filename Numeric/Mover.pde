@@ -5,6 +5,7 @@ class Mover {
   PVector acceleration;
   float mass;
   float gravity = 0.5;
+  float Pc = 0.7;
   
   Spring s;
  
@@ -45,9 +46,24 @@ class Mover {
     }
  
     if (location.y > height) {
-      velocity.y *= -1;
+      velocity.y *= -1 * Pc;
       location.y = height;
-      s.begin();
+      s.begin(acceleration.y * mass);
+      
+      //If we are touching the floor we also slow down the x movement with friction
+      int direction;
+      if (velocity.x != 0) {
+        if (velocity.x >0) {
+          direction = -1;
+        } else {
+          direction = 1;
+        }
+        float mu = 0.5;
+        float normal = mass * gravity;
+        velocity.x += direction * normal* mu;
+    
+      }
+      
     }
   }
 }
