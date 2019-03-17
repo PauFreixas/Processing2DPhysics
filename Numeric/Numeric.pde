@@ -3,6 +3,7 @@ Mover m;
 void setup() {
   size(640,360);
   m = new Mover();
+  frameRate(20);
 }
  
 void draw() {

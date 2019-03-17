@@ -1,8 +1,8 @@
 class Mover {
-  
+
   float mass;
-  float radius = 10;
-  
+  float radius = 2;
+
   PVector position;
   PVector speed;
   PVector acceleration;
@@ -10,11 +10,7 @@ class Mover {
   PVector initialSpeed;
   PVector initialPosition;
 
-  Bob bob;
-  Anchor anchor;
-  Spring spring;
-  
-  color c = color(255,0,0);
+  color c = color(255, 0, 0);
 
   public Mover(PVector initialPosition, PVector initialSpeed) {
     mass = 30;
@@ -44,7 +40,6 @@ class Mover {
   }
 
   public void checkEdges() {
-
 
     if (position.x + radius > SCREEN_WIDTH) {
       position.x = SCREEN_WIDTH - radius;

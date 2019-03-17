@@ -1,14 +1,19 @@
 class Spring {
 
-  float restPosition;
-  float stiffnes;
-  float elongation = 0;
-  float springLength;
-  public Spring(float restPosition, float stiffness ) { 
+  float restPosition;        //Rest distance of the spring
+  float stiffnes;            //Stiffness is the K of Hooks Law
+  float elongation = 0;      //How much diference between restPosition and actual length
+  float amplitude;           //Amplitude of the swing movement
+  float springLength;        //Actual spring length
+  
+  
+  public Spring(float restPosition, float stiffness ,float amplitude) { 
     this.restPosition = restPosition;
     this.stiffnes = stiffness;
+    this.amplitude = amplitude;
   }
   
+  //Method we use to get the Hooks Law Forces
   public float getForceMag(){
      return elongation*stiffnes;
   }

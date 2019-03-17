@@ -2,6 +2,7 @@ class Mover {
 
   float MOVER_RADIUS = 20;
   float MASS = 30;
+  PImage basketballImage; 
 
   PVector position;
   PVector speed;
@@ -11,6 +12,9 @@ class Mover {
   PVector initialPosition;
 
   public Mover(PVector initialPosition, PVector initialSpeed) {
+
+    basketballImage = loadImage("basketBall.png");
+
     position = new PVector().set(initialPosition);
     speed = new PVector().set(initialSpeed);
     acceleration = new PVector();
@@ -22,8 +26,8 @@ class Mover {
 
   public void display() {
     fill(255, 0, 0);
-    rectMode(CENTER);
-    ellipse(position.x, -position.y, MOVER_RADIUS*2, MOVER_RADIUS*2);
+    imageMode(CENTER);
+    image(basketballImage, position.x, -position.y, MOVER_RADIUS*2, MOVER_RADIUS*2);
   }
 
   public void update() {
