@@ -1,4 +1,4 @@
-class Mover {
+class Ball {
  
   PVector location;
   PVector velocity;
@@ -9,7 +9,7 @@ class Mover {
   
   Spring s;
  
-  Mover() {
+  Ball() {
     mass = 1;
     location = new PVector(30,30);
     velocity = new PVector(2,0);

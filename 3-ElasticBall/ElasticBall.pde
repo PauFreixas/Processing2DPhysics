@@ -1,15 +1,15 @@
-Mover m;
+Ball b;
 
 void setup() {
   size(640,360);
-  m = new Mover();
+  b = new Ball();
   frameRate(20);
 }
  
 void draw() {
   background(255);
  
-   m.update();
-   m.display();
+   b.update();
+   b.display();
    
 }

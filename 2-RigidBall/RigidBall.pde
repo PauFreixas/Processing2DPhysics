@@ -23,12 +23,12 @@ void setup() {
      .setPosition(100, 10)   // Position of the slider
      .setSize(300, 10)       // Size of the slider
      .setRange(0, 10)      // Minimum and maximum values
-     .setValue(1);           // Initial value
+     .setValue(5);           // Initial value
   cp5.addSlider("friction")
      .setPosition(100, 30)   // Position of the slider
      .setSize(300, 10)       // Size of the slider
-     .setRange(0, 10)      // Minimum and maximum values
-     .setValue(10);           // Initial value
+     .setRange(0, 1)      // Minimum and maximum values
+     .setValue(0.5);           // Initial value
   // Create a button
   myButton = cp5.addButton("buttonPressed")  // Function to be called on button press
                 .setPosition(500, 0)       // Position of the button
@@ -43,8 +43,8 @@ void buttonPressed() {
 void draw() {
   background(0);
   
-  b.setMass(cp5.getController("mass").getValue());
-  b.setFriction(cp5.getController("friction").getValue());
+  ball.setMass(cp5.getController("mass").getValue());
+  ball.setFriction(cp5.getController("friction").getValue());
   
   ball.update();
   ball.display();

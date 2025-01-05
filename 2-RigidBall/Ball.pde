@@ -41,6 +41,8 @@ class Ball {
   public void update() {
     speed.add(acceleration);
     position.add(speed);
+    
+    //Reset and recalculate acceleration
     acceleration.mult(0);
     PVector friction = new PVector().set(ball.speed);
     friction.mult(-1); 
@@ -66,8 +68,6 @@ class Ball {
   }
 
   public void checkEdges() {
-
-
     if (position.x + BALL_RADIUS > SCREEN_WIDTH) {
       position.x = SCREEN_WIDTH - BALL_RADIUS;
       speed.x *= -1;

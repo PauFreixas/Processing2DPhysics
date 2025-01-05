@@ -36,7 +36,7 @@ void buttonPressed() {
 }
 
 void draw() {
-  background(51);
+  background(0);
   
   b.setMass(cp5.getController("mass").getValue());
   b.setGravity(cp5.getController("gravity").getValue());

@@ -1,0 +1,2 @@
+# Ignore sketch-specific metadata files (e.g., settings for the IDE)
+*.preferences
