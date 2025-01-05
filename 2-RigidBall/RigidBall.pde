@@ -1,15 +1,20 @@
 import controlP5.*;
-Ball b;
 ControlP5 cp5;
 Button myButton;
 
 int SCREEN_WIDTH = 800;
 int SCREEN_HEIGHT = 600;
 
+float COEFFICIENT_OF_FRICTION = 1;
+
+Ball ball;
+
 void setup() {
-  size(640, 360);
-  fill(255, 126);
-  b = new Ball();
+  size(800, 600);
+  surface.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
+  surface.setLocation (400, 20);
+
+  ball = new Ball();
   
   cp5 = new ControlP5(this);  // Initialize ControlP5
   
@@ -19,7 +24,7 @@ void setup() {
      .setSize(300, 10)       // Size of the slider
      .setRange(0, 10)      // Minimum and maximum values
      .setValue(1);           // Initial value
-  cp5.addSlider("gravity")
+  cp5.addSlider("friction")
      .setPosition(100, 30)   // Position of the slider
      .setSize(300, 10)       // Size of the slider
      .setRange(0, 10)      // Minimum and maximum values
@@ -32,15 +37,15 @@ void setup() {
 }
 
 void buttonPressed() {
-  b.resetBall();
+  ball.resetBall();
 }
 
 void draw() {
-  background(51);
+  background(0);
   
   b.setMass(cp5.getController("mass").getValue());
-  b.setGravity(cp5.getController("gravity").getValue());
+  b.setFriction(cp5.getController("friction").getValue());
   
-  b.update();
-  b.display();
-};
+  ball.update();
+  ball.display();
+}

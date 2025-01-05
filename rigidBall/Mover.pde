@@ -31,7 +31,6 @@ class Mover {
   }
 
   public void update() {
-
     speed.add(acceleration);
     position.add(speed);
     acceleration.mult(0);
